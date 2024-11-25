@@ -5,16 +5,12 @@ dotenv.config();
 
 const dbConnection = async () => {
   try {
-await mongoose.Connect(process.env.ATLAS_URI, {
-  keepAlive: true,
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: true,
-});
+    await mongoose.connect(process.env.ATLAS_URI);
     console.log("Database connected successfully");
     return mongoose.connection;
   } catch (error) {
-    console.log("Error while connecting to data:", error);
+    console.log("Error while connecting to database:", error);
   }
 };
+
 export default dbConnection;

@@ -5,7 +5,7 @@ export const createPerson = async (req, res) => {
     const { username } = req.body;
     const existingUser = await Persons.findOne({ username });
     if (existingUser) {
-      return res.status(400).send("user already exists");
+      return res.status(400).send("User already exists");
     }
     const person = new Persons(req.body);
     await person.save();
@@ -15,8 +15,7 @@ export const createPerson = async (req, res) => {
   }
 };
 
-
-//finding a particular user using it'S Id
+// Finding a particular user using its ID
 export const findById = async (req, res) => {
   try {
     const user = await Persons.findById(req.params.id);
@@ -26,6 +25,6 @@ export const findById = async (req, res) => {
       res.status(404).json({ message: "User not found" });
     }
   } catch (err) {
-    res.status(500).json({ message: err.massage });
+    res.status(500).json({ message: err.message });
   }
 };

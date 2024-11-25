@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 const personsSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -29,5 +30,6 @@ const personsSchema = new mongoose.Schema({
     trim: true,
   },
 });
-const Persons = mongoose.model("persons", personsSchema);
+
+const Persons = mongoose.model("Persons", personsSchema);
 export default Persons;
